@@ -1,0 +1,17 @@
+---
+import NavLink from './NavLink.astro';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-paper/80 backdrop-blur-sm">
+	<div class="mx-auto flex max-w-5xl items-center justify-between px-8 py-6">
+		<a href="/" class="font-serif text-lg font-bold tracking-tight text-ink hover:text-accent transition-colors">
+			JP
+		</a>
+		<nav class="flex items-center gap-6">
+			<NavLink href="#proyectos">Proyectos</NavLink>
+			<NavLink href="#contacto">Contacto</NavLink>
+			<ThemeToggle />
+		</nav>
+	</div>
+</header>

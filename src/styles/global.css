@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --theme-bg: #faf7f0;
+    --theme-text: #1a1a1a;
+    --theme-text-light: #6b6b6b;
+    --theme-text-muted: #a3a3a3;
+    --theme-accent: #8b4513;
+  }
+  .dark {
+    --theme-bg: #111110;
+    --theme-text: #e8e4d9;
+    --theme-text-light: #9c9c8a;
+    --theme-text-muted: #6b6b5e;
+    --theme-accent: #d4956a;
+  }
+}
+
+@theme {
+  --color-paper: var(--theme-bg);
+  --color-ink: var(--theme-text);
+  --color-ink-light: var(--theme-text-light);
+  --color-ink-muted: var(--theme-text-muted);
+  --color-accent: var(--theme-accent);
+  --font-serif: "Courier Prime", ui-monospace, monospace;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
