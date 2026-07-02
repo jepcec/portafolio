@@ -1,0 +1,61 @@
+---
+const experiences = [
+	{
+		period: 'Mayo 2026 — Junio 2026',
+		company: 'Apolos Gym Cusco',
+		role: 'Desarrollador',
+		description: 'Aplicación de escritorio para gestión de gimnasio distribuida como ejecutable Windows con Electron. Arquitectura full-stack con Next.js, React, TypeScript, Prisma ORM y SQLite. Módulos para clientes, membresías, pagos, control de asistencia, dashboard con métricas, reportes CSV y respaldos automáticos.',
+		tags: ['Next.js', 'React', 'TypeScript', 'Electron', 'Prisma', 'SQLite'],
+		link: 'https://github.com/jepcec/gym-apolos/',
+	},
+	{
+		period: 'Febrero 2026 — Abril 2026',
+		company: 'Cusco Digital Studio',
+		role: 'Desarrollador freelance',
+		description: 'Diseño y desarrollo de sitio web desde cero con Next.js. Implementé interfaz frontend, diseño responsivo, estructura de componentes y optimización de rendimiento y SEO. Gestioné UI/UX, contenido y despliegue del sitio.',
+		tags: ['Next.js', 'React', 'TypeScript', 'SEO', 'UI/UX'],
+		link: 'https://www.cuscodigitalstudio.online/',
+	},
+	{
+		period: 'Enero 2026 — Febrero 2026',
+		company: 'Bambu Spa Cusco',
+		role: 'Desarrollador freelance',
+		description: 'Desarrollo y despliegue de landing page, gestionando todo el proceso desde la programación hasta su publicación en línea, contribuyendo a la presencia digital del negocio.',
+		tags: ['Next.js', 'React', 'Landing Page', 'Despliegue'],
+		link: 'https://www.bambuspacusco.com/',
+	},
+];
+---
+
+<section id="experiencia" class="mx-auto max-w-2xl px-8 py-24">
+	<h2 class="font-serif text-3xl font-bold tracking-tight md:text-4xl">
+		Experiencia
+	</h2>
+	<div class="mt-12 flex flex-col gap-16">
+		{
+			experiences.map((exp) => (
+				<article class="relative border-l border-ink/15 pl-6">
+					<span class="absolute -left-[0.375rem] top-1 h-2.5 w-2.5 rounded-full border border-ink/20 bg-paper"></span>
+					<span class="text-xs font-medium tracking-widest text-ink-muted uppercase">{exp.period}</span>
+					<h3 class="mt-1 font-bold text-lg leading-snug text-ink">
+						{exp.role} — <span class="font-normal text-ink-light">{exp.company}</span>
+					</h3>
+					<p class="mt-3 text-sm leading-relaxed text-ink-light">{exp.description}</p>
+					<div class="mt-3 flex flex-wrap gap-2">
+						{exp.tags.map((tag) => (
+							<span class="rounded-sm border border-ink/10 px-2 py-0.5 font-mono text-xs text-ink-light">{tag}</span>
+						))}
+					</div>
+					<a
+						href={exp.link}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="mt-3 inline-block text-xs text-ink-muted hover:text-accent transition-colors"
+					>
+						{exp.link}
+					</a>
+				</article>
+			))
+		}
+	</div>
+</section>
