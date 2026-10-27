@@ -1,6 +1,6 @@
 .hero { grid-template-columns:1fr 1.04fr; gap:64px; }
-.availability { display:inline-flex; align-items:center; gap:9px; padding:8px 14px; border:1px solid #16803c; border-radius:999px; color:#fff; background:#16803c; box-shadow:0 5px 16px #16803c38; font-size:11px; font-weight:700; margin-bottom:31px; }
-.availability span { width:8px; height:8px; border-radius:50%; background:#bbf7d0; box-shadow:0 0 0 3px #ffffff35,0 0 10px #bbf7d0a0; }
+.availability { display:inline-flex; align-items:center; gap:10px; padding:9px 16px; border:1px solid #16803c; border-radius:999px; color:#fff; background:#16803c; box-shadow:0 5px 16px #16803c38; font-size:13px; font-weight:700; margin-bottom:31px; }
+.availability span { width:9px; height:9px; border-radius:50%; background:#bbf7d0; box-shadow:0 0 0 3px #ffffff35,0 0 10px #bbf7d0a0; }
 .dark .availability { border-color:#4ade80; color:#142318; background:#4ade80; box-shadow:0 5px 18px #4ade8040; }
 .dark .availability span { background:#14532d; box-shadow:0 0 0 3px #14532d30,0 0 10px #14532d80; }
 .intro { margin-bottom:12px; }
