@@ -1,36 +1,43 @@
 ---
 import '../styles/global.css';
-
-// BASE_URL termina en "/" cuando base != "/"; normalizamos para concatenar assets.
-const base = import.meta.env.BASE_URL.endsWith('/')
-    ? import.meta.env.BASE_URL
-    : `${import.meta.env.BASE_URL}/`;
+import '../styles/portfolio.css';
+import { profile } from '../data/profile';
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const title = `${profile.name} | Full Stack · Backend y arquitectura`;
+const description = 'Desarrollador full stack en Cusco, Perú. Experiencia en NestJS, React, aplicaciones de escritorio, APIs, bases de datos y despliegues con Docker.';
+const canonical = new URL(base, Astro.site ?? Astro.url.origin);
 ---
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
-        <link rel="icon" href={`${base}favicon.ico`} />
-        <meta name="generator" content={Astro.generator} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400;1,500&display=swap"
-            rel="stylesheet"
-        />
-        <title>Jhon Esau Pumachoque Choquenaira | Desarrollador Full Stack</title>
-        <script is:inline>
-            (function() {
-                var theme = localStorage.getItem('theme');
-                if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                }
-            })();
-        </script>
-    </head>
-    <body class="min-h-screen bg-paper text-ink font-mono antialiased transition-colors duration-300">
-        <slot />
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} />
+    <link rel="canonical" href={canonical} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#E7E7E5" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_PE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <script is:inline>
+      (() => {
+        let theme;
+        try { theme = localStorage.getItem('theme'); } catch {}
+        const dark = theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        document.documentElement.classList.toggle('dark', dark);
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#202224' : '#E7E7E5');
+      })();
+    </script>
+  </head>
+  <body><a class="skip-link" href="#contenido">Saltar al contenido</a><slot /></body>
 </html>

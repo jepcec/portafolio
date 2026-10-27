@@ -1,18 +1,30 @@
 ---
-import Cursor from './Cursor.astro';
+import { profile } from '../data/profile';
+const cvUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${profile.cvFilename}`;
+const projectPreviewUrl = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/escuela_global.png`;
+const featuredProject = {
+  name: 'Escuela Global',
+  company: 'GLOBASOC S.A.C.',
+  url: 'https://www.especializacionesglobal.net/',
+};
 ---
-
-<section class="flex items-center justify-center px-8 py-32 md:py-40">
-	<div class="max-w-2xl text-center">
-		Hola soy
-		<h1 class="font-serif text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-			Jhon Esau
-		</h1>
-		<p class="mt-4 font-mono text-xl text-ink-light md:text-2xl">
-			desarrollador full-stack<Cursor />
-		</p>
-		<p class="mx-auto mt-8 max-w-md text-base leading-relaxed text-ink-light">
-			Construyo aplicaciones web y de escritorio con arquitecturas limpias, código mantenible y buenas prácticas.
-		</p>
-	</div>
+<section class="hero shell" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <p class="availability"><span aria-hidden="true"></span>Disponible para nuevas oportunidades</p>
+    <p class="intro">Hola, soy {profile.shortName}</p>
+    <h1 id="hero-title">Desarrollador<br />full stack.</h1>
+    <p class="hero-focus">Me especializo en {profile.focus.toLowerCase()}.</p>
+    <p class="hero-description">Ahora trabajo en la plataforma educativa <strong>{featuredProject.name}</strong>, mejorando su arquitectura, APIs y gestión de contenido.</p>
+    <div class="actions">
+      <a class="button button-primary" href={cvUrl} download>Descargar CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4" /></svg></a>
+      <a class="button button-secondary" href="#contacto">Contactar</a>
+    </div>
+    <p class="hero-location"><span class="location-mark" aria-hidden="true"></span>{profile.location}</p>
+  </div>
+  <figure class="hero-visual" aria-labelledby="hero-visual-caption">
+    <div class="preview-browser"><div class="preview-toolbar" aria-hidden="true"><span class="preview-dots"><i></i><i></i><i></i></span><span class="preview-address">especializacionesglobal.net</span><span class="preview-open">↗</span></div>
+      <a class="preview-image-link" href={featuredProject.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir el sitio de ${featuredProject.name}`}><img class="preview-image" src={projectPreviewUrl} alt={`Captura real de la página web de ${featuredProject.name}`} width="1897" height="938" fetchpriority="high" /></a>
+    </div>
+    <figcaption id="hero-visual-caption"><span class="project-status"><i aria-hidden="true"></i>Participando ahora</span><span class="project-caption-copy"><strong>{featuredProject.name}</strong><small>{featuredProject.company}</small></span><a href={featuredProject.url} target="_blank" rel="noopener noreferrer">Abrir sitio ↗</a></figcaption>
+  </figure>
 </section>
