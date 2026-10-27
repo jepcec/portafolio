@@ -1,9 +1,10 @@
 ---
 import NavLink from './NavLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
 ---
 <header class="site-header"><div class="shell header-inner">
-  <a href={import.meta.env.BASE_URL} class="wordmark" aria-label="Jhon Esau, inicio"><img class="stone-glyph" src={`${import.meta.env.BASE_URL}favicon.svg`} alt="" aria-hidden="true" width="26" height="26" />Jhon Esau</a>
+  <a href={base} class="wordmark" aria-label="Jhon Esau, inicio"><img class="stone-glyph" src={`${base}favicon.svg`} alt="" aria-hidden="true" width="26" height="26" />Jhon Esau</a>
   <nav aria-label="Navegación principal"><NavLink href="#experiencia">Experiencia</NavLink><NavLink href="#skills">Tecnologías</NavLink><NavLink href="#sobre-mi">Perfil</NavLink><NavLink href="#contacto">Contacto</NavLink></nav>
   <ThemeToggle />
 </div></header>
